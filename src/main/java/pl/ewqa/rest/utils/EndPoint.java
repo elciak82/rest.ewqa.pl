@@ -1,6 +1,6 @@
 package pl.ewqa.rest.utils;
 
 public interface EndPoint {
-    String NOTES = "notes";
+    String NOTES = "notes1";
     String SINGLE_NOTE = "notes/{noteId}";
 }
