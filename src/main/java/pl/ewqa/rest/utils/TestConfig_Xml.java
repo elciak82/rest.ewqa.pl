@@ -8,17 +8,17 @@ import io.restassured.specification.ResponseSpecification;
 import org.junit.BeforeClass;
 
 public class TestConfig_Xml {
-    public static ResponseSpecification responseSpec;
-    public static RequestSpecification ewqa_requestSpec;
-    public static RequestSpecification ewqaAuth_requestSpec;
+    private static ResponseSpecification responseSpec;
+    private static RequestSpecification ewqa_requestSpec;
+    private static RequestSpecification ewqaAuth_requestSpec;
 
     @BeforeClass
     public static void setup(){
         ewqa_requestSpec = new RequestSpecBuilder().
                 setBaseUri("http://rest.ewqa.pl").
                 setBasePath("/api/v1/").
-                addHeader("Content-Type", "application/testXml").// change between "application/testXml" and "application/testJson" as required
-                addHeader("Accept", "application/testXml").// change between "application/testXml" and "application/testJson" as required
+                addHeader("Content-Type", "application/xml").// change between "application/testXml" and "application/testJson" as required
+                addHeader("Accept", "application/xml").// change between "application/testXml" and "application/testJson" as required
                 build().log().all();
 
 //        auth_requestSpec = new RequestSpecBuilder().
