@@ -1,7 +1,6 @@
-package pl.ewqa.rest.test;
+package pl.ewqa.rest.testJson;
 
 import io.restassured.path.json.JsonPath;
-import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,7 +11,7 @@ import pl.ewqa.rest.utils.TestConfig_Json;
 
 import static io.restassured.RestAssured.given;
 
-public class NotesTests extends TestConfig_Json {
+public class NotesTestsJson extends TestConfig_Json {
 
     @Test
     public void getAllNotes() {
@@ -48,34 +47,6 @@ public class NotesTests extends TestConfig_Json {
         Assert.assertEquals(createdNote.getDescription(), note.getDescription());
     }
 
-    @Test
-    public void createNewNoteByXML() {
-        String suffix = BaseMethods.randomAlphaNumeric(8);
-        String noteName = "name_ " + suffix;
-        String description = "description_ " + suffix;
-
-        //create note
-        Note note = new Note(noteName, description);
-
-        //create response and post
-        Response response = given().body(note.toXml()).
-                when().post(EndPoint.NOTES);
-        XmlPath xmlPathEvaluator = response.xmlPath();
-
-        //check status code
-        response.then().assertThat().statusCode(201);
-
-        //check note from response
-        Assert.assertEquals(xmlPathEvaluator.get("message.name"), note.getName());
-        Assert.assertEquals(xmlPathEvaluator.get("message.description"), note.getDescription());
-
-        //get created note
-        Note createdNote = getSingleNote(xmlPathEvaluator.get("message.id").toString());
-
-        //check created note
-        Assert.assertEquals(createdNote.getName(), note.getName());
-        Assert.assertEquals(createdNote.getDescription(), note.getDescription());
-    }
 //    @Test
 //    public void updateNote() {
 //        String body = "{\n" +

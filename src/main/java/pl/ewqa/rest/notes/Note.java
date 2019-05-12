@@ -34,8 +34,8 @@ public class Note {
 
     public String toXml(){
         return "<root>\n" +
-                "    <name>\""+this.name+"\"</name>\n" +
-                "    <description>\""+this.description+"\"</description>\n" +
+                "    <name>"+this.name+"</name>\n" +
+                "    <description>"+this.description+"</description>\n" +
                 "</root>";
     }
 }

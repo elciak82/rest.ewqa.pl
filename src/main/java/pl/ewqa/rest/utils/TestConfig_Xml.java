@@ -1,10 +1,10 @@
 package pl.ewqa.rest.utils;
 
-import com.jayway.restassured.RestAssured;
-import com.jayway.restassured.builder.RequestSpecBuilder;
-import com.jayway.restassured.builder.ResponseSpecBuilder;
-import com.jayway.restassured.specification.RequestSpecification;
-import com.jayway.restassured.specification.ResponseSpecification;
+import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
 import org.junit.BeforeClass;
 
 public class TestConfig_Xml {
@@ -17,8 +17,8 @@ public class TestConfig_Xml {
         ewqa_requestSpec = new RequestSpecBuilder().
                 setBaseUri("http://rest.ewqa.pl").
                 setBasePath("/api/v1/").
-                addHeader("Content-Type", "application/xml").// change between "application/xml" and "application/json" as required
-                addHeader("Accept", "application/xml").// change between "application/xml" and "application/json" as required
+                addHeader("Content-Type", "application/testXml").// change between "application/testXml" and "application/testJson" as required
+                addHeader("Accept", "application/testXml").// change between "application/testXml" and "application/testJson" as required
                 build().log().all();
 
 //        auth_requestSpec = new RequestSpecBuilder().

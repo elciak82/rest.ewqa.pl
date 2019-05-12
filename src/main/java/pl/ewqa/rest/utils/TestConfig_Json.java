@@ -17,8 +17,8 @@ public class TestConfig_Json {
         ewqa_requestSpec = new RequestSpecBuilder().
                 setBaseUri("http://rest.ewqa.pl").
                 setBasePath("/api/v1/").
-                addHeader("Content-Type", "application/json").// change between "application/xml" and "application/json" as required
-                addHeader("Accept", "application/json").// change between "application/xml" and "application/json" as required
+                addHeader("Content-Type", "application/testJson").// change between "application/testXml" and "application/testJson" as required
+                addHeader("Accept", "application/testJson").// change between "application/testXml" and "application/testJson" as required
                 build().log().all();
 
 //        auth_requestSpec = new RequestSpecBuilder().
